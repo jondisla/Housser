@@ -201,10 +201,8 @@ $mainColor: #1361c3;
   .search-form {
     height: 270px !important;
   }
-  .carousel-control-next {
-    position: fixed !important;
-    right: 23px !important;
-    top: -300px !important;
+  .carousel-control-next-icon {
+    margin-left: -80px !important;
   }
   .single-result-details,
   .single-result-image {
