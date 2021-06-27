@@ -1,0 +1,82 @@
+<!-- @format -->
+<div class="home">
+  <div class="home-wrapper">
+    <div class="welcome-section">
+      <img src="/img/topBg.jpg" alt="main banner" />
+    </div>
+
+    <div class="search-form">
+      <div class="featured-section">
+        <h4>Search Properties</h4>
+        <div class="underline"></div>
+      </div>
+      <form action="/main-results" method="POST">
+        <input
+          type="hidden"
+          name="offset"
+          id=""
+          placeholder=""
+          value="0"
+          disabled
+        />
+        <input
+          type="hidden"
+          name="limit"
+          id=""
+          placeholder=""
+          value="40"
+          disabled
+        />
+        <input type="number" name="price_max" id="" placeholder="Max Price" />
+        <input type="number" name="beds_max" id="" placeholder="Max Rooms" />
+        <input type="number" name="baths_max" id="" placeholder="Max Baths" />
+        <input type="text" name="city" id="" placeholder="City" required />
+        <input
+          type="text"
+          name="state_code"
+          id=""
+          placeholder="State"
+          required
+        />
+
+        <select name="property_type" required>
+          <option value="" disabled selected>Property Type</option>
+          <option value="single_family">Single Family</option>
+          <option value="multi_family">Multi Family</option>
+          <option value="town_house">Town House</option>
+          <option value="condos">Condo</option>
+          <option value="land">Land</option>
+          <option value="mobile">Mobile</option>
+        </select>
+        <br />
+        <button style="width: 180px" class="submit-search" type="submit">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+  <div id="welcome-text">
+    <div class="welcome-sec">
+      <h1>A smarter way to discover your new home, today.</h1>
+      <br />
+      <p>
+        Begin with telling us about your type of property above. We provide all
+        the information you need about the property you desire.
+      </p>
+    </div>
+    <div id="homeImg"></div>
+  </div>
+  <script>
+    let animation = anime({
+      targets: "#welcome-text",
+      translateY: 180,
+      direction: "alternate",
+      loop: false,
+      easing: "cubicBezier(.5, 3, .1, 2)",
+    });
+
+    $(".welcome-sec")
+      .css({ opacity: 0, visibility: "visible" })
+      .animate({ opacity: 1.0 }, 200);
+  </script>
+</div>

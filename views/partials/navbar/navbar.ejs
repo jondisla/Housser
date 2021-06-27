@@ -1,0 +1,141 @@
+<!-- @format -->
+
+<!-- Mobile Navbar -->
+
+<div class="mobile-navbar">
+  <div id="close-nav-btn"><i class="fas fa-times"></i></div>
+  <div id="open-nav-btn"><i class="fas fa-bars"></i></div>
+  <div class="logo">
+    <a href="/"><img src="/img/logo.png" alt="logo-house" /></a>
+  </div>
+  <div class="search-form">
+    <!-- <div class="drawer-logo">
+      <a href="/"><img src="/img/logo.png" alt="logo-house" /></a>
+    </div> -->
+    <form action="/main-results" method="POST">
+      <input
+        type="hidden"
+        name="offset"
+        id=""
+        placeholder=""
+        value="0"
+        disabled
+      />
+      <input
+        type="hidden"
+        name="limit"
+        id=""
+        placeholder=""
+        value="40"
+        disabled
+      />
+      <input type="number" name="price_max" id="" placeholder="Max Price" />
+      <input type="number" name="beds_max" id="" placeholder="Max Rooms" />
+      <input type="number" name="baths_max" id="" placeholder="Max Baths" />
+      <input type="text" name="city" id="" placeholder="City" />
+      <input type="text" name="state_code" id="" placeholder="State" />
+
+      <select name="property_type">
+        <option value="single_family">Single Family</option>
+        <option value="multi_family">Multi Family</option>
+        <option value="town_house">Town House</option>
+        <option value="condos">Condo</option>
+        <option value="land">Land</option>
+        <option value="mobile">Mobile</option>
+      </select>
+      <button class="submit-search" type="submit">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </form>
+  </div>
+  <div class="login">
+    <!-- <button>Login</button> -->
+    Source:
+    <a href="https://rapidapi.com/datascraper/api/us-real-estate/"
+      >US Real Estate API</a
+    >
+  </div>
+</div>
+
+<div class="navbar">
+  <div class="logo">
+    <a href="/"><img src="/img/logo.png" alt="logo-house" /></a>
+  </div>
+  <div class="search-form">
+    <form action="/main-results" method="POST">
+      <input
+        type="hidden"
+        name="offset"
+        id=""
+        placeholder=""
+        value="0"
+        disabled
+      />
+      <input
+        type="hidden"
+        name="limit"
+        id=""
+        placeholder=""
+        value="50"
+        disabled
+      />
+      <input
+        class="fas fa-money-bill-wave"
+        type="number"
+        name="price_max"
+        id=""
+        placeholder="Min &#xf0d6;"
+        min="150000"
+        max="700000"
+        required
+      />
+      <input
+        class="fas fa-money-bill-wave"
+        type="number"
+        name="price_max"
+        id=""
+        placeholder="Max &#xf0d6;"
+        min="150000"
+        max="700000"
+        required
+      />
+      <input
+        class="fas fa-money-bill-wave"
+        type="number"
+        name="beds_max"
+        id=""
+        placeholder="Max &#xf236;"
+        required
+      />
+      <input
+        class="fas fa-money-bill-wave"
+        type="number"
+        name="baths_max"
+        id=""
+        placeholder="Max &#xf2cd;"
+        required
+      />
+      <input type="text" name="city" id="" placeholder="City" required />
+      <input type="text" name="state_code" id="" placeholder="State" required />
+
+      <select name="property_type" required>
+        <option value="single_family">Single Family</option>
+        <option value="multi_family">Multi Family</option>
+        <option value="town_house">Town House</option>
+        <option value="condos">Condo</option>
+        <option value="land">Land</option>
+        <option value="mobile">Mobile</option>
+      </select>
+      <button class="submit-search" type="submit">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </form>
+  </div>
+  <div class="login">
+    <!-- <button>Login</button> -->
+    Source:
+    <a href="https://rapidapi.com/datascraper/api/us-real-estate/"
+      >US Real Estate API</a
+    >
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="results">
+  <% fetchedData.forEach(function(result){%>
+    <div class="main-result-card">
+      <div class="primary-type"><%- result.description.type.replace(/_/g, " ").toUpperCase().slice(0,6) %></div>
+    <div class="primary-status"><%- result.status.replace(/_/g, " ").toUpperCase() %></div>
+        <!-- primary-image -->
+        <% if(result.primary_photo != null){ %>
+        <img class="primary-result-image" src=<%- result.primary_photo.href %>>
+          <% }else { %>
+            <img class="primary-result-image" src="https://www.eduprizeschools.net/wp-content/uploads/2016/06/No_Image_Available.jpg">
+          <% } %>
+        <div class="primary-result-details">
+          <div class="primary-price">$<%- result.list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') %></div>
+          <div class="primary-rooms">
+            <i class="fa fa-bed" aria-hidden="true"></i> <%- result.description.beds %>
+          </div>
+          <div class="primary-bath">
+            <i class="fa fa-bath" aria-hidden="true"></i> <%- result.description.baths %>
+          </div>
+          <div class="primary-footage">
+              <%if(result.description.sqft){%>
+              <i class="fa fa-cubes" aria-hidden="true"></i> <%- result.description.sqft.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %> SQ FT.
+              <%}else{%>
+                <i class="fa fa-cubes" aria-hidden="true"></i> <%- result.description.lot_sqft.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %> Lot
+              <%}%>
+            </div>
+          <div class="primary-address">
+            <i class="fa fa-map-marker" aria-hidden="true"></i> <%- result.location.address.line%>  <%- result.location.address.city %> <%- result.location.address.state_code %> <%- result.location.address.postal_code %>
+          </div>
+          <div class="primary-agent">Provided by: <%- result.branding.name %></div>
+          <%if(result.location.address.coordinate != null){%>
+          <div class="primary-view-btn"><a href="single_listing/<%-result.property_id%>/<%-result.location.address.coordinate.lon%>/<%-result.location.address.lat%>">View Details</a></div>
+          <%}%>
+        </div>
+      </div>
+    <%})%>
+  </div>
+</div>
