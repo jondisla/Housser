@@ -11,6 +11,7 @@ const { type } = require("os");
 const PORT = process.env.PORT;
 
 require("dotenv").config();
+const GEO_API_KEY = process.env.GEOCODING_KEY;
 const API_KEY = process.env.API_KEY;
 const GEOCODING_KEY = process.env.GEOCODING_KEY;
 
@@ -189,6 +190,7 @@ app.get("/single_listing/:property_id/:lat/:lon", (req, res) => {
         agent_num: agent_num,
         property_id: property_id,
         details: details,
+        GEO_API_KEY: GEO_API_KEY,
       });
       // res.send(response.data);
     })
