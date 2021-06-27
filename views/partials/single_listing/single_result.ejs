@@ -33,6 +33,7 @@
     <!-- END CAROUSEL -->
 
     <div class="single-result-details">
+      
       <div class="single-address"><%-address%>., <%-city%>, <%-state_code%> <%-postal_code%></div>
       <div class="detail-tabs">
         <ul>
@@ -69,7 +70,7 @@
       <div id="map"></div>
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
         <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPCz6vohCIWWl0ltbKjxufI4N50KMRFEw&callback=initMap&libraries=&v=weekly"
+        src="https://maps.googleapis.com/maps/api/js?key=<%=GEO_API_KEY%>&callback=initMap&libraries=&v=weekly"
         async
         ></script>
 

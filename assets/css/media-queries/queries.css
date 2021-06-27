@@ -169,11 +169,23 @@
     display: none !important;
   }
   .search-form {
-    padding: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
     width: 70vw;
   }
   .search-form input {
     margin: 10px 0;
+  }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 60px !important;
+    height: 60px !important;
   }
   .single-listing {
     display: inline-block !important;
@@ -222,6 +234,16 @@
 @media only screen and (max-width: 897px) {
   .search-form {
     height: 270px !important;
+  }
+  .single-result-details,
+  .single-result-image {
+    padding: 0 !important;
+  }
+  .single-listing {
+    padding-top: 20px;
+  }
+  .general-info {
+    padding: 0 20px !important;
   }
 }
 /*# sourceMappingURL=queries.css.map */

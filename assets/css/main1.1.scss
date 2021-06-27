@@ -1,9 +1,9 @@
 /** @format */
 @import "../css/reset.css";
 @import "../css/media-queries/queries";
-@import "../../../fetch/views/partials/navbar/navbar";
-@import "../../../fetch/views/partials/home/featured";
-@import "../../../fetch/views/partials/single_listing/single";
+@import "../../../housser/views/partials/navbar/navbar";
+@import "../../../housser/views/partials/home/featured";
+@import "../../../housser/views/partials/single_listing/single";
 
 //variables
 $mainColor: #1361c3;
