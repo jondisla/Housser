@@ -26,16 +26,50 @@
         name="limit"
         id=""
         placeholder=""
-        value="40"
+        value="50"
         disabled
       />
-      <input type="number" name="price_max" id="" placeholder="Max Price" />
-      <input type="number" name="beds_max" id="" placeholder="Max Rooms" />
-      <input type="number" name="baths_max" id="" placeholder="Max Baths" />
-      <input type="text" name="city" id="" placeholder="City" />
-      <input type="text" name="state_code" id="" placeholder="State" />
+      <input
+        class="fas fa-money-bill-wave"
+        type="number"
+        name="price_max"
+        id=""
+        placeholder="Min &#xf0d6;"
+        min="150000"
+        max="700000"
+        required
+      />
+      <input
+        class="fas fa-money-bill-wave"
+        type="number"
+        name="price_max"
+        id=""
+        placeholder="Max &#xf0d6;"
+        min="150000"
+        max="700000"
+        required
+      />
+      <input
+        class="fas fa-money-bill-wave"
+        type="number"
+        name="beds_max"
+        id=""
+        placeholder="Max &#xf236;"
+        required
+      />
+      <input
+        class="fas fa-money-bill-wave"
+        type="number"
+        name="baths_max"
+        id=""
+        placeholder="Max &#xf2cd;"
+        required
+      />
+      <input type="text" name="city" id="" placeholder="City" required />
+      <input type="text" name="state_code" id="" placeholder="State" required />
 
-      <select name="property_type">
+      <select name="property_type" required>
+        <option value="" disabled selected>Property Type</option>
         <option value="single_family">Single Family</option>
         <option value="multi_family">Multi Family</option>
         <option value="town_house">Town House</option>
@@ -119,6 +153,7 @@
       <input type="text" name="state_code" id="" placeholder="State" required />
 
       <select name="property_type" required>
+        <option value="" disabled selected>Property Type</option>
         <option value="single_family">Single Family</option>
         <option value="multi_family">Multi Family</option>
         <option value="town_house">Town House</option>

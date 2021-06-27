@@ -154,6 +154,7 @@
   }
   .mobile-navbar .login {
     display: none;
+    padding-top: 40px;
   }
 }
 
