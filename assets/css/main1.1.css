@@ -433,6 +433,11 @@
   font-weight: bold;
 }
 
+.results .main-result-card .primary-result-details .primary-list-date {
+  -ms-grid-column: 3;
+  grid-column: 3;
+}
+
 .results .main-result-card .primary-result-details .primary-rooms {
   -ms-grid-row: 2;
   grid-row: 2;
@@ -476,12 +481,12 @@
 .results .main-result-card .primary-result-details .primary-view-btn {
   -ms-grid-row: 5;
   grid-row: 5;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 2;
-  grid-column: 3/5;
-  -ms-grid-column-align: end;
-      justify-self: end;
-  padding: 10px 0;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  padding: 20px 0;
 }
 
 .results .main-result-card .primary-result-details .primary-view-btn a {

@@ -61,6 +61,9 @@ $mainColor: #1361c3;
         color: black;
         font-weight: bold;
       }
+      .primary-list-date {
+        grid-column: 3;
+      }
       .primary-rooms {
         grid-row: 2;
         grid-column: 1;
@@ -86,9 +89,9 @@ $mainColor: #1361c3;
       }
       .primary-view-btn {
         grid-row: 5;
-        grid-column: 3/5;
-        justify-self: end;
-        padding: 10px 0;
+        grid-column: 1/4;
+        justify-self: center;
+        padding: 20px 0;
         a {
           background: white;
           border: 1px solid rgb(189, 188, 188);

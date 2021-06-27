@@ -9,6 +9,7 @@ var axios = require("axios").default;
 var morgan = require("morgan");
 const { type } = require("os");
 const PORT = process.env.PORT;
+const moment = require("moment");
 
 require("dotenv").config();
 const GEO_API_KEY = process.env.GEOCODING_KEY;
@@ -21,47 +22,15 @@ app.use(express.static("assets"));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
 app.use("/assets", express.static("assets"));
+//moments
+app.use((req, res, next) => {
+  res.locals.moment = moment;
+  next();
+});
 
 app.set("views", path.resolve(__dirname, "views"));
 
 app.set("view engine", "ejs");
-
-//HOME/Featured
-app.get("/", (req, res) => {
-  res.render("home");
-  // let offset = 0;
-  // let limit = 9;
-  // let state_code = "California";
-  // let city = "Los Angeles";
-  // let sort = "newest";
-  // var options = {
-  //   method: "GET",
-  //   url: `https://us-real-estate.p.rapidapi.com/for-sale?offset${offset}&limit=${limit}&state_code=${state_code}&city=${city}&sort=${sort}`,
-  //   headers: {
-  //     "x-rapidapi-key": API_KEY,
-  //     "x-rapidapi-host": "us-real-estate.p.rapidapi.com",
-  //   },
-  // };
-
-  // axios
-  //   .request(options)
-  //   .then(function (response) {
-  //     var fetchedData = response.data.data.results;
-
-  //     // fetchedData.forEach((element) => {
-  //     //   var doit = element.location.address.coordinate;
-  //     //   console.log(doit);
-  //     // });
-  //     if (response.status === 200) {
-  //       res.render("home", { fetchedData: fetchedData });
-  //     } else {
-  //       res.render("search");
-  //     }
-  //   })
-  //   .catch(function (error) {
-  //     console.error(error);
-  //   });
-});
 
 //Search form
 app.post("/main-results", (req, res) => {
@@ -69,8 +38,8 @@ app.post("/main-results", (req, res) => {
   var limit = req.body.limit;
   var price_min = req.body.price_min;
   var price_max = req.body.price_max;
-  var beds_max = req.body.bes_max;
-  var baths_max = req.body.baths_max;
+  var beds_min = req.body.beds_min;
+  var baths_min = req.body.baths_min;
   var state_code = req.body.state_code;
   var city = req.body.city;
   var property_type = req.body.property_type;
@@ -78,7 +47,7 @@ app.post("/main-results", (req, res) => {
   var sort = "newest";
   var options = {
     method: "GET",
-    url: `https://us-real-estate.p.rapidapi.com/for-sale?offset${offset}&limit=${limit}&price_min=${price_min}&price_max=${price_max}&beds_max=${beds_max}&baths_max=${baths_max}&state_code=${state_code}&city=${city}&sort=${sort}&property_type=${property_type}`,
+    url: `https://us-real-estate.p.rapidapi.com/for-sale?offset${offset}&limit=${limit}&price_min=${price_min}&price_max=${price_max}&beds_min=${beds_min}&beds_max=${beds_min}&baths_min=${baths_min}&baths_max=${baths_min}&state_code=${state_code}&city=${city}&sort=${sort}&property_type=${property_type}`,
     headers: {
       "x-rapidapi-key": API_KEY,
       "x-rapidapi-host": "us-real-estate.p.rapidapi.com",
@@ -94,12 +63,24 @@ app.post("/main-results", (req, res) => {
       var limit = req.body.limit;
       var price_min = req.body.price_min;
       var price_max = req.body.price_max;
-      var beds_max = req.body.beds_max;
-      var baths_max = req.body.baths_max;
+      var beds_min = req.body.beds_min;
+      var baths_min = req.body.baths_min;
       var state_code = req.body.state_code;
       var city = req.body.city;
       var sort = "newest";
-      // console.log(fetchedData.list_price);
+
+      // var listed_day_num = [];
+      // var days_ago = [];
+      // var current_date = new Date().getDate();
+      // fetchedData.forEach((data) => {
+      //   var list_date = moment(data.list_date).format("Do").slice(0, 2);
+      //   listed_day_num.push(list_date);
+      // });
+      // for (let i = 0; i < listed_day_num.length; i++) {
+      //   const d = listed_day_num[i] - current_date;
+      //   days_ago.push(d);
+      // }
+      // console.log(days_ago);
 
       if (response.status === 200) {
         res.render("main-results", {
@@ -107,19 +88,12 @@ app.post("/main-results", (req, res) => {
           limit: limit,
           price_min: price_min,
           price_max: price_max,
-          beds_max: beds_max,
-          baths_max: baths_max,
+          beds_min: beds_min,
+          baths_min: baths_min,
           state_code: state_code,
           city: city,
           sort: sort,
         });
-
-        // console.log(response.data);
-        // const listArray = [];
-        // for (let i = 0; i < results; i++) {
-        //   console.log(results[i]);
-        // }
-        // res.send(fetchedData);
       } else {
         res.render("/");
       }

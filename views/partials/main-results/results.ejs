@@ -5,13 +5,14 @@
         <div class="primary-type"><%- result.description.type.replace(/_/g, " ").toUpperCase().slice(0,6) %></div>
       <div class="primary-status"><%- result.status.replace(/_/g, " ").toUpperCase() %></div>
           <!-- primary-image -->
-          <% if(result.primary_photo != null){ %>
-          <img class="primary-result-image" src=<%- result.primary_photo.href %>>
+          <% if(result.primary_photo != null && result.location.address.coordinate != null){ %>
+            <a href="single_listing/<%-result.property_id%>/<%-result.location.address.coordinate.lon%>/<%-result.location.address.coordinate.lat%>"><img class="primary-result-image" src=<%- result.primary_photo.href %>></a>
             <% }else { %>
               <img class="primary-result-image" src="https://www.eduprizeschools.net/wp-content/uploads/2016/06/No_Image_Available.jpg">
             <% } %>
           <div class="primary-result-details">
             <div class="primary-price">$<%- result.list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %></div>
+            <div class="primary-list-date">Listed <%-moment(result.list_date).format('MMMM, Do')%></div>
             <div class="primary-rooms">
               <i class="fa fa-bed" aria-hidden="true"></i> <%- result.description.beds %>
             </div>
