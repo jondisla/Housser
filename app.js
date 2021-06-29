@@ -32,6 +32,11 @@ app.set("views", path.resolve(__dirname, "views"));
 
 app.set("view engine", "ejs");
 
+//Home
+app.get('/', (req, res)=>{
+  res.render('home')
+})
+
 //Search form
 app.post("/main-results", (req, res) => {
   var offset = req.body.offset;

@@ -21,6 +21,10 @@ $mainColor: #1361c3;
     background: url("../../img/landpage.jpg") center no-repeat;
     background-size: cover;
     height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-top: 40vh;
   }
   .welcome-section {
     display: none;
@@ -28,12 +32,7 @@ $mainColor: #1361c3;
   #welcome-text {
     display: none !important;
   }
-  .home-wrapper {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    padding-top: 40vh;
-  }
+
   .navbar {
     display: none !important;
   }
@@ -58,7 +57,7 @@ $mainColor: #1361c3;
     z-index: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center !important;
     justify-content: center;
     padding: 20px;
     gap: 20px;
@@ -68,6 +67,7 @@ $mainColor: #1361c3;
       height: 100vh;
       display: flex !important;
       justify-content: center;
+      transition: all 0.5s ease-in-out;
     }
     #close-nav-btn {
       font-size: 30px;
@@ -93,6 +93,8 @@ $mainColor: #1361c3;
 
     .search-form {
       display: none;
+      align-items: center !important;
+      transition: all 0.5s ease-in-out;
       input,
       select {
         display: flex;
@@ -117,7 +119,7 @@ $mainColor: #1361c3;
         color: white;
         border: 0;
         border-radius: 5px;
-        padding-top: 10px !important;
+        // padding-top: 10px !important;
       }
       button {
         &:hover {
@@ -129,6 +131,14 @@ $mainColor: #1361c3;
     .login {
       display: none;
       padding-top: 40px;
+    }
+  }
+  .home-wrapper {
+    select {
+      margin: 10px 0 !important;
+    }
+    button {
+      margin-top: 10px !important;
     }
   }
 }
@@ -147,11 +157,15 @@ $mainColor: #1361c3;
     display: none !important;
   }
   .search-form {
-    // padding: 300px 0;
+    padding: 160px !important;
     display: flex;
+    flex-wrap: wrap !important;
     justify-content: center;
     align-content: center;
-    width: 70vw;
+    width: 50vw;
+    form {
+      width: 260px;
+    }
     input {
       margin: 10px 0;
     }

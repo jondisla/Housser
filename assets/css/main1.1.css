@@ -22,14 +22,6 @@
     background: url("../../img/landpage.jpg") center no-repeat;
     background-size: cover;
     height: 100vh;
-  }
-  .welcome-section {
-    display: none;
-  }
-  #welcome-text {
-    display: none !important;
-  }
-  .home-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -39,6 +31,12 @@
         -ms-flex-pack: center;
             justify-content: center;
     padding-top: 40vh;
+  }
+  .welcome-section {
+    display: none;
+  }
+  #welcome-text {
+    display: none !important;
   }
   .navbar {
     display: none !important;
@@ -72,9 +70,9 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -91,6 +89,8 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .mobile-navbar #close-nav-btn {
     font-size: 30px;
@@ -115,6 +115,11 @@
   }
   .mobile-navbar .search-form {
     display: none;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   .mobile-navbar .search-form input,
   .mobile-navbar .search-form select {
@@ -145,7 +150,6 @@
     color: white;
     border: 0;
     border-radius: 5px;
-    padding-top: 10px !important;
   }
   .mobile-navbar .search-form button:hover {
     background: #1361c3;
@@ -155,6 +159,12 @@
   .mobile-navbar .login {
     display: none;
     padding-top: 40px;
+  }
+  .home-wrapper select {
+    margin: 10px 0 !important;
+  }
+  .home-wrapper button {
+    margin-top: 10px !important;
   }
 }
 
@@ -172,15 +182,21 @@
     display: none !important;
   }
   .search-form {
+    padding: 160px !important;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     -ms-flex-line-pack: center;
         align-content: center;
-    width: 70vw;
+    width: 50vw;
+  }
+  .search-form form {
+    width: 260px;
   }
   .search-form input {
     margin: 10px 0;
