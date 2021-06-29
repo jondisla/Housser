@@ -18,6 +18,7 @@ const GEOCODING_KEY = process.env.GEOCODING_KEY;
 
 var app = express();
 
+//MIDDLEWARES
 app.use(express.static("assets"));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
@@ -27,15 +28,20 @@ app.use((req, res, next) => {
   res.locals.moment = moment;
   next();
 });
+//errors
+// app.use((req, res, next) => {
+//   res.status(404);
+//   res.render("error");
+// });
 
 app.set("views", path.resolve(__dirname, "views"));
 
 app.set("view engine", "ejs");
 
 //Home
-app.get('/', (req, res)=>{
-  res.render('home')
-})
+app.get("/", (req, res) => {
+  res.render("home");
+});
 
 //Search form
 app.post("/main-results", (req, res) => {
@@ -48,8 +54,8 @@ app.post("/main-results", (req, res) => {
   var state_code = req.body.state_code;
   var city = req.body.city;
   var property_type = req.body.property_type;
-
   var sort = "newest";
+
   var options = {
     method: "GET",
     url: `https://us-real-estate.p.rapidapi.com/for-sale?offset${offset}&limit=${limit}&price_min=${price_min}&price_max=${price_max}&beds_min=${beds_min}&beds_max=${beds_min}&baths_min=${baths_min}&baths_max=${baths_min}&state_code=${state_code}&city=${city}&sort=${sort}&property_type=${property_type}`,
@@ -74,19 +80,6 @@ app.post("/main-results", (req, res) => {
       var city = req.body.city;
       var sort = "newest";
 
-      // var listed_day_num = [];
-      // var days_ago = [];
-      // var current_date = new Date().getDate();
-      // fetchedData.forEach((data) => {
-      //   var list_date = moment(data.list_date).format("Do").slice(0, 2);
-      //   listed_day_num.push(list_date);
-      // });
-      // for (let i = 0; i < listed_day_num.length; i++) {
-      //   const d = listed_day_num[i] - current_date;
-      //   days_ago.push(d);
-      // }
-      // console.log(days_ago);
-
       if (response.status === 200) {
         res.render("main-results", {
           fetchedData: fetchedData,
@@ -100,7 +93,8 @@ app.post("/main-results", (req, res) => {
           sort: sort,
         });
       } else {
-        res.render("/");
+        console.log("ERRORRRR");
+        res.send("error");
       }
     })
     .catch(function (error) {

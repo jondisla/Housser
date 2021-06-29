@@ -27,8 +27,19 @@ console.log("from GMAPS");
 $(document).ready(function () {
   console.log("ready");
 
-  //mobile-menu
+  //LOADING
+  $(".search-it").submit(() => {
+    $(".loader, .loading-text").show();
+    $(".search-form").hide();
+    $("#welcome-text, .results").hide();
+  });
+  // $(".main-result-card").click(() => {
+  //   $(".loader").show();
+  //   $(".results").hide();
+  //   console.log("cle");
+  // });
 
+  //mobile-menu
   //open/close button
   $("#open-nav-btn").click(() => {
     $("#close-nav-btn").show();

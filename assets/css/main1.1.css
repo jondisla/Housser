@@ -1,5 +1,4 @@
 /** @format */
-@import url(/Users/jon/Code/JS/PortProjects/housser/assets/css/reset.css);
 /**
  * /* ----------- Non-Retina Screens -----------
  *
@@ -532,6 +531,53 @@ body {
   overflow-x: hidden;
 }
 
+.loading-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loading-text {
+  display: none;
+}
+
+.loader {
+  display: none;
+  margin-top: 20%;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #1361c3;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 #welcome-text {
   margin: 0 auto;
   height: 600px;
@@ -608,6 +654,11 @@ body {
   background: #1361c3;
   -webkit-filter: brightness(80%);
           filter: brightness(80%);
+}
+
+.home .error-msg {
+  padding-top: 100px;
+  text-align: center;
 }
 
 .widthStyle {

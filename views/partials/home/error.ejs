@@ -1,10 +1,6 @@
 <!-- @format -->
 <div class="home">
   <div class="home-wrapper">
-    <div class="welcome-section">
-      <img src="/img/topBg.jpg" alt="main banner" />
-    </div>
-
     <div class="loader"></div>
     <div class="search-form">
       <div class="featured-section">
@@ -28,45 +24,16 @@
           value="40"
           disabled
         />
-        <input
-          type="number"
-          name="price_max"
-          id=""
-          placeholder="Max Price"
-          min="50000"
-          max="700000"
-        />
-        <input
-          type="number"
-          name="beds_max"
-          id=""
-          placeholder="Max Rooms"
-          min="1"
-          max="5"
-        />
-        <input
-          type="number"
-          name="baths_max"
-          id=""
-          placeholder="Max Baths"
-          min="1"
-          max="4"
-        />
-        <input
-          type="text"
-          name="city"
-          id=""
-          placeholder="City"
-          required
-          pattern="[a-zA-Z]+"
-        />
+        <input type="number" name="price_max" id="" placeholder="Max Price" />
+        <input type="number" name="beds_max" id="" placeholder="Max Rooms" />
+        <input type="number" name="baths_max" id="" placeholder="Max Baths" />
+        <input type="text" name="city" id="" placeholder="City" required />
         <input
           type="text"
           name="state_code"
           id=""
           placeholder="State"
           required
-          pattern="[a-zA-Z]+"
         />
 
         <select name="property_type" required>
@@ -88,16 +55,8 @@
   <div class="loading-wrapper">
     <div class="loader"></div>
   </div>
-  <div id="welcome-text">
-    <div class="welcome-sec">
-      <h1>A smarter way to discover your new home, today.</h1>
-      <br />
-      <p>
-        Begin with telling us about your type of property above. We provide all
-        the information you need about the property you desire.
-      </p>
-    </div>
-    <div id="homeImg"></div>
+  <div class="error-msg">
+    <h2>No results found or invalid search</h2>
   </div>
   <script>
     let animation = anime({

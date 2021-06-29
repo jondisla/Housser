@@ -1,5 +1,5 @@
 /** @format */
-@import "../css/reset.css";
+// @import "../css/reset.css";
 @import "../css/media-queries/queries";
 @import "../../../housser/views/partials/navbar/navbar";
 @import "../../../housser/views/partials/home/featured";
@@ -14,6 +14,46 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
+
+//LOADER
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.loading-text {
+  display: none;
+}
+.loader {
+  display: none;
+  margin-top: 20%;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid $mainColor;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 #welcome-text {
   margin: 0 auto;
   height: 600px;
@@ -77,6 +117,10 @@ body {
         filter: brightness(80%);
       }
     }
+  }
+  .error-msg {
+    padding-top: 100px;
+    text-align: center;
   }
 }
 
@@ -250,3 +294,5 @@ body {
     background-color: grey;
   }
 }
+
+//////////////////////RESETS////////////////////

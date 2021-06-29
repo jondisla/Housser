@@ -56,6 +56,8 @@
         id=""
         placeholder="Rooms &#xf236;"
         required
+        min="1"
+        max="4"
       />
       <input
         class="fas fa-money-bill-wave"
@@ -64,9 +66,25 @@
         id=""
         placeholder="Baths &#xf2cd;"
         required
+        min="1"
+        max="3"
       />
-      <input type="text" name="city" id="" placeholder="City" required />
-      <input type="text" name="state_code" id="" placeholder="State" required />
+      <input
+        type="text"
+        name="city"
+        id=""
+        placeholder="City"
+        required
+        pattern="[a-zA-Z]+"
+      />
+      <input
+        type="text"
+        name="state_code"
+        id=""
+        placeholder="State"
+        required
+        pattern="[a-zA-Z]+"
+      />
 
       <select name="property_type" required>
         <option value="" disabled selected>Property Type</option>
@@ -95,8 +113,9 @@
   <div class="logo">
     <a href="/"><img src="/img/logo.png" alt="logo-house" /></a>
   </div>
+  <div class="loading-text">Getting Listings...</div>
   <div class="search-form">
-    <form action="/main-results" method="POST">
+    <form class="search-it" action="/main-results" method="POST">
       <input
         type="hidden"
         name="offset"
@@ -140,6 +159,8 @@
         id=""
         placeholder="Rooms &#xf236;"
         required
+        min="1"
+        max="4"
       />
       <input
         class="fas fa-money-bill-wave"
@@ -148,9 +169,25 @@
         id=""
         placeholder="Baths &#xf2cd;"
         required
+        min="1"
+        max="3"
       />
-      <input type="text" name="city" id="" placeholder="City" required />
-      <input type="text" name="state_code" id="" placeholder="State" required />
+      <input
+        type="text"
+        name="city"
+        id=""
+        placeholder="City"
+        required
+        pattern="[a-zA-Z]+"
+      />
+      <input
+        type="text"
+        name="state_code"
+        id=""
+        placeholder="State"
+        required
+        pattern="[a-zA-Z]+"
+      />
 
       <select name="property_type" required>
         <option value="" disabled selected>Property Type</option>
