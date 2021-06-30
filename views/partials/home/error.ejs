@@ -9,46 +9,86 @@
       </div>
       <form class="search-it" action="/main-results" method="POST">
         <input
-          type="hidden"
-          name="offset"
-          id=""
-          placeholder=""
-          value="0"
-          disabled
-        />
-        <input
-          type="hidden"
-          name="limit"
-          id=""
-          placeholder=""
-          value="40"
-          disabled
-        />
-        <input type="number" name="price_max" id="" placeholder="Max Price" />
-        <input type="number" name="beds_max" id="" placeholder="Max Rooms" />
-        <input type="number" name="baths_max" id="" placeholder="Max Baths" />
-        <input type="text" name="city" id="" placeholder="City" required />
-        <input
-          type="text"
-          name="state_code"
-          id=""
-          placeholder="State"
-          required
-        />
+        type="hidden"
+        name="offset"
+        id=""
+        placeholder=""
+        value="0"
+        disabled
+      />
+      <input
+        type="hidden"
+        name="limit"
+        id=""
+        placeholder=""
+        value="50"
+        disabled
+      />
+      <input
+        class="fas fa-money-bill-wave"
+        type="number"
+        name="price_min"
+        id=""
+        placeholder="Min &#xf0d6;"
+        min="150000"
+        max="700000"
+      />
+      <input
+        class="fas fa-money-bill-wave"
+        type="number"
+        name="price_max"
+        id=""
+        placeholder="Max &#xf0d6;"
+        min="150000"
+        max="700000"
+      />
+      <input
+        class="fas fa-money-bill-wave"
+        type="number"
+        name="beds_min"
+        id=""
+        placeholder="Rooms &#xf236;"
+        min="1"
+        max="4"
+      />
+      <input
+        class="fas fa-money-bill-wave"
+        type="number"
+        name="baths_min"
+        id=""
+        placeholder="Baths &#xf2cd;"
+        min="1"
+        max="3"
+      />
+      <input
+        type="text"
+        name="city"
+        id=""
+        placeholder="City"
+        required
+        pattern="[a-zA-Z]+"
+      />
+      <input
+        type="text"
+        name="state_code"
+        id=""
+        placeholder="State"
+        required
+        pattern="[a-zA-Z]+"
+      />
 
-        <select name="property_type" required>
-          <option value="" disabled selected>Property Type</option>
-          <option value="single_family">Single Family</option>
-          <option value="multi_family">Multi Family</option>
-          <option value="town_house">Town House</option>
-          <option value="condos">Condo</option>
-          <option value="land">Land</option>
-          <option value="mobile">Mobile</option>
-        </select>
-        <br />
-        <button style="width: 180px" class="submit-search" type="submit">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
+      <select name="property_type" required>
+        <option value="" disabled selected>Property Type</option>
+        <option value="single_family">Single Family</option>
+        <option value="multi_family">Multi Family</option>
+        <option value="town_house">Town House</option>
+        <option value="condos">Condo</option>
+        <option value="land">Land</option>
+        <option value="mobile">Mobile</option>
+      </select>
+      <button class="submit-search" type="submit">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
       </form>
     </div>
   </div>

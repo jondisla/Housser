@@ -656,7 +656,8 @@ body {
           filter: brightness(80%);
 }
 
-.home .error-msg {
+.home .error-msg,
+.home .error-msg-results {
   padding-top: 100px;
   text-align: center;
 }
