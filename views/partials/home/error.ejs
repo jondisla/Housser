@@ -55,20 +55,7 @@
   <div class="loading-wrapper">
     <div class="loader"></div>
   </div>
-  <div class="error-msg">
+  <div class="error-msg-results">
     <h2>No results found or invalid search</h2>
   </div>
-  <script>
-    let animation = anime({
-      targets: "#welcome-text",
-      translateY: 180,
-      direction: "alternate",
-      loop: false,
-      easing: "cubicBezier(.5, 3, .1, 2)",
-    });
-
-    $(".welcome-sec")
-      .css({ opacity: 0, visibility: "visible" })
-      .animate({ opacity: 1.0 }, 200);
-  </script>
 </div>

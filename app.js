@@ -30,8 +30,20 @@ app.use((req, res, next) => {
 });
 //errors
 // app.use((req, res, next) => {
-//   res.status(404);
-//   res.render("error");
+//   const err = new Error("Not Found");
+//   err.status = 404;
+//   next(err);
+// });
+
+// //error handler
+// app.use((err, req, res, next) => {
+//   res.status(err.status || 500);
+//   res.send({
+//     error: {
+//       status: err.status || 500,
+//       message: err.message,
+//     },
+//   });
 // });
 
 app.set("views", path.resolve(__dirname, "views"));
@@ -39,12 +51,21 @@ app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 
 //Home
-app.get("/", (req, res) => {
-  res.render("home");
+app.get("/", (req, res, next) => {
+  setTimeout(() => {
+    try {
+      console.log("Success.");
+      res.render("home");
+      // throw new Error("Hello Error!")
+    } catch (error) {
+      // manually catching
+      next(error); // passing to default middleware error handler
+    }
+  }, 1000);
 });
 
 //Search form
-app.post("/main-results", (req, res) => {
+app.post("/main-results", async (req, res, next) => {
   var offset = req.body.offset;
   var limit = req.body.limit;
   var price_min = req.body.price_min;
@@ -77,10 +98,12 @@ app.post("/main-results", (req, res) => {
       var beds_min = req.body.beds_min;
       var baths_min = req.body.baths_min;
       var state_code = req.body.state_code;
+      var property_type = req.body.property_type;
       var city = req.body.city;
       var sort = "newest";
+      console.log(property_type);
 
-      if (response.status === 200) {
+      try {
         res.render("main-results", {
           fetchedData: fetchedData,
           limit: limit,
@@ -90,11 +113,11 @@ app.post("/main-results", (req, res) => {
           baths_min: baths_min,
           state_code: state_code,
           city: city,
+          property_type: property_type,
           sort: sort,
         });
-      } else {
-        console.log("ERRORRRR");
-        res.send("error");
+      } catch (e) {
+        next(e);
       }
     })
     .catch(function (error) {
@@ -103,8 +126,7 @@ app.post("/main-results", (req, res) => {
 });
 
 //Single Listing
-
-app.get("/single_listing/:property_id/:lat/:lon", (req, res) => {
+app.get("/single_listing/:property_id/:lat/:lon", (req, res, next) => {
   var property_id = req.params.property_id;
   var lat = req.params.lat;
   var lat = req.params.lon;
@@ -170,6 +192,12 @@ app.get("/single_listing/:property_id/:lat/:lon", (req, res) => {
     .catch(function (error) {
       console.error(error);
     });
+});
+
+//ERROR HANDLING
+app.use((err, req, res, next) => {
+  res.render("error");
+  console.log(err);
 });
 
 http.createServer(app).listen(PORT, () => {
