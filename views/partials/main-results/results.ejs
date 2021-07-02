@@ -9,7 +9,7 @@
       <div class="primary-status"><%- result.status.replace(/_/g, " ").toUpperCase() %></div>
           <!-- primary-image -->
           <% if(result.primary_photo != null && result.location.address.coordinate != null){ %>
-            <a href="single_listing/<%-result.property_id%>/<%-result.location.address.coordinate.lon%>/<%-result.location.address.coordinate.lat%>"><img class="primary-result-image" src=<%- result.primary_photo.href %>></a>
+            <a href="<%-result.description.type%>/<%-result.property_id%>/<%-result.location.address.coordinate.lon%>/<%-result.location.address.coordinate.lat%>"><img class="primary-result-image" src=<%- result.primary_photo.href %>></a>
             <% }else { %>
               <img class="primary-result-image" src="https://www.eduprizeschools.net/wp-content/uploads/2016/06/No_Image_Available.jpg">
             <% } %>
@@ -30,7 +30,7 @@
             </div>
             <!-- <div class="primary-agent">Provided by: <%-// result.branding.name %></div> -->
             <%if(result.location.address.coordinate != null){%>
-              <div class="primary-view-btn"><a href="single_listing/<%-result.property_id%>/<%-result.location.address.coordinate.lon%>/<%-result.location.address.coordinate.lat%>">View Details</a></div>
+              <div class="primary-view-btn"><a href="<%-result.description.type%>/<%-result.property_id%>/<%-result.location.address.coordinate.lon%>/<%-result.location.address.coordinate.lat%>">View Details</a></div>
               <%}else{%>
                 <<div class="primary-view-btn">No more info</div>>
               <%}%>

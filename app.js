@@ -125,8 +125,8 @@ app.post("/main-results", async (req, res, next) => {
     });
 });
 
-//Single Listing
-app.get("/single_listing/:property_id/:lat/:lon", (req, res, next) => {
+//Single fam Listing
+app.get("/single_family/:property_id/:lat/:lon", (req, res, next) => {
   var property_id = req.params.property_id;
   var lat = req.params.lat;
   var lat = req.params.lon;
@@ -158,6 +158,7 @@ app.get("/single_listing/:property_id/:lat/:lon", (req, res, next) => {
       var photos = single_data.photos;
       var type = single_data.description.type;
       var footage = single_data.description.sqft;
+      var lot_footage = single_data.description.lot_sqft;
       var description = single_data.description.text;
       var beds = single_data.description.beds;
       var full_baths = single_data.description.baths_full;
@@ -167,7 +168,7 @@ app.get("/single_listing/:property_id/:lat/:lon", (req, res, next) => {
       // console.log(details[1]);
       // console.log(agent_num);
 
-      res.render("single_listing", {
+      res.render("single_family", {
         status: status_code,
         address: address,
         city: city,
@@ -178,6 +179,7 @@ app.get("/single_listing/:property_id/:lat/:lon", (req, res, next) => {
         type: type,
         photos: photos,
         footage: footage,
+        lot_footage: lot_footage,
         description: description,
         beds: beds,
         full_baths: full_baths,
@@ -187,7 +189,356 @@ app.get("/single_listing/:property_id/:lat/:lon", (req, res, next) => {
         details: details,
         GEO_API_KEY: GEO_API_KEY,
       });
-      // res.send(response.data);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+});
+
+//Single Land Listing
+app.get("/land/:property_id/:lat/:lon", (req, res, next) => {
+  var property_id = req.params.property_id;
+  var lat = req.params.lat;
+  var lat = req.params.lon;
+
+  //RAPID API
+  var options = {
+    method: "GET",
+    url: `https://us-real-estate.p.rapidapi.com/property-detail`,
+    params: { property_id: property_id },
+    headers: {
+      "x-rapidapi-key": API_KEY,
+      "x-rapidapi-host": "us-real-estate.p.rapidapi.com",
+    },
+  };
+
+  //GOOGLE JS API
+
+  axios
+    .request(options)
+    .then(function (response) {
+      var status_code = response.data.status;
+      var single_data = response.data.data;
+      var address = single_data.location.address.line;
+      var city = single_data.location.address.city;
+      var state_code = single_data.location.address.state_code;
+      var postal_code = single_data.location.address.postal_code;
+      var price = single_data.list_price;
+      var status = single_data.status;
+      var photos = single_data.photos;
+      var type = single_data.description.type;
+      var footage = single_data.description.sqft;
+      var lot_footage = single_data.description.lot_sqft;
+      var description = single_data.description.text;
+      var beds = single_data.description.beds;
+      var full_baths = single_data.description.baths_full;
+      var agent_name = single_data.consumer_advertisers[0].name;
+      var agent_num = single_data.consumer_advertisers[1].phone;
+      var details = single_data.details[3].text;
+      // console.log(details[1]);
+      // console.log(agent_num);
+
+      res.render("land", {
+        status: status_code,
+        address: address,
+        city: city,
+        state_code: state_code,
+        postal_code: postal_code,
+        price: price,
+        status: status,
+        type: type,
+        photos: photos,
+        footage: footage,
+        lot_footage: lot_footage,
+        description: description,
+        beds: beds,
+        full_baths: full_baths,
+        agent_name: agent_name,
+        agent_num: agent_num,
+        property_id: property_id,
+        details: details,
+        GEO_API_KEY: GEO_API_KEY,
+      });
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+});
+
+//Condo Listing
+app.get("/condo/:property_id/:lat/:lon", (req, res, next) => {
+  var property_id = req.params.property_id;
+  var lat = req.params.lat;
+  var lat = req.params.lon;
+
+  //RAPID API
+  var options = {
+    method: "GET",
+    url: `https://us-real-estate.p.rapidapi.com/property-detail`,
+    params: { property_id: property_id },
+    headers: {
+      "x-rapidapi-key": API_KEY,
+      "x-rapidapi-host": "us-real-estate.p.rapidapi.com",
+    },
+  };
+
+  //GOOGLE JS API
+
+  axios
+    .request(options)
+    .then(function (response) {
+      var status_code = response.data.status;
+      var single_data = response.data.data;
+      var address = single_data.location.address.line;
+      var city = single_data.location.address.city;
+      var state_code = single_data.location.address.state_code;
+      var postal_code = single_data.location.address.postal_code;
+      var price = single_data.list_price;
+      var status = single_data.status;
+      var photos = single_data.photos;
+      var type = single_data.description.type;
+      var footage = single_data.description.sqft;
+      var lot_footage = single_data.description.lot_sqft;
+      var description = single_data.description.text;
+      var beds = single_data.description.beds;
+      var full_baths = single_data.description.baths_full;
+      var agent_name = single_data.consumer_advertisers[0].name;
+      var agent_num = single_data.consumer_advertisers[1].phone;
+      var details = single_data.details[3].text;
+      // console.log(details[1]);
+      // console.log(agent_num);
+
+      res.render("condo", {
+        status: status_code,
+        address: address,
+        city: city,
+        state_code: state_code,
+        postal_code: postal_code,
+        price: price,
+        status: status,
+        type: type,
+        photos: photos,
+        footage: footage,
+        lot_footage: lot_footage,
+        description: description,
+        beds: beds,
+        full_baths: full_baths,
+        agent_name: agent_name,
+        agent_num: agent_num,
+        property_id: property_id,
+        details: details,
+        GEO_API_KEY: GEO_API_KEY,
+      });
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+});
+
+//Mobile Listing
+app.get("/mobile/:property_id/:lat/:lon", (req, res, next) => {
+  var property_id = req.params.property_id;
+  var lat = req.params.lat;
+  var lat = req.params.lon;
+
+  //RAPID API
+  var options = {
+    method: "GET",
+    url: `https://us-real-estate.p.rapidapi.com/property-detail`,
+    params: { property_id: property_id },
+    headers: {
+      "x-rapidapi-key": API_KEY,
+      "x-rapidapi-host": "us-real-estate.p.rapidapi.com",
+    },
+  };
+
+  //GOOGLE JS API
+
+  axios
+    .request(options)
+    .then(function (response) {
+      var status_code = response.data.status;
+      var single_data = response.data.data;
+      var address = single_data.location.address.line;
+      var city = single_data.location.address.city;
+      var state_code = single_data.location.address.state_code;
+      var postal_code = single_data.location.address.postal_code;
+      var price = single_data.list_price;
+      var status = single_data.status;
+      var photos = single_data.photos;
+      var type = single_data.description.type;
+      var footage = single_data.description.sqft;
+      var lot_footage = single_data.description.lot_sqft;
+      var description = single_data.description.text;
+      var beds = single_data.description.beds;
+      var full_baths = single_data.description.baths_full;
+      var agent_name = single_data.consumer_advertisers[0].name;
+      var agent_num = single_data.consumer_advertisers[1].phone;
+      var details = single_data.details[3].text;
+      // console.log(details[1]);
+      // console.log(agent_num);
+
+      res.render("mobile", {
+        status: status_code,
+        address: address,
+        city: city,
+        state_code: state_code,
+        postal_code: postal_code,
+        price: price,
+        status: status,
+        type: type,
+        photos: photos,
+        footage: footage,
+        lot_footage: lot_footage,
+        description: description,
+        beds: beds,
+        full_baths: full_baths,
+        agent_name: agent_name,
+        agent_num: agent_num,
+        property_id: property_id,
+        details: details,
+        GEO_API_KEY: GEO_API_KEY,
+      });
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+});
+
+//Multi Listing
+app.get("/multi_family/:property_id/:lat/:lon", (req, res, next) => {
+  var property_id = req.params.property_id;
+  var lat = req.params.lat;
+  var lat = req.params.lon;
+
+  //RAPID API
+  var options = {
+    method: "GET",
+    url: `https://us-real-estate.p.rapidapi.com/property-detail`,
+    params: { property_id: property_id },
+    headers: {
+      "x-rapidapi-key": API_KEY,
+      "x-rapidapi-host": "us-real-estate.p.rapidapi.com",
+    },
+  };
+
+  //GOOGLE JS API
+
+  axios
+    .request(options)
+    .then(function (response) {
+      var status_code = response.data.status;
+      var single_data = response.data.data;
+      var address = single_data.location.address.line;
+      var city = single_data.location.address.city;
+      var state_code = single_data.location.address.state_code;
+      var postal_code = single_data.location.address.postal_code;
+      var price = single_data.list_price;
+      var status = single_data.status;
+      var photos = single_data.photos;
+      var type = single_data.description.type;
+      var footage = single_data.description.sqft;
+      var lot_footage = single_data.description.lot_sqft;
+      var description = single_data.description.text;
+      var beds = single_data.description.beds;
+      var full_baths = single_data.description.baths_full;
+      var agent_name = single_data.consumer_advertisers[0].name;
+      var agent_num = single_data.consumer_advertisers[1].phone;
+      var details = single_data.details[3].text;
+      // console.log(details[1]);
+      // console.log(agent_num);
+
+      res.render("multi_family", {
+        status: status_code,
+        address: address,
+        city: city,
+        state_code: state_code,
+        postal_code: postal_code,
+        price: price,
+        status: status,
+        type: type,
+        photos: photos,
+        footage: footage,
+        lot_footage: lot_footage,
+        description: description,
+        beds: beds,
+        full_baths: full_baths,
+        agent_name: agent_name,
+        agent_num: agent_num,
+        property_id: property_id,
+        details: details,
+        GEO_API_KEY: GEO_API_KEY,
+      });
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+});
+
+//Town House Listing
+app.get("/town_house/:property_id/:lat/:lon", (req, res, next) => {
+  var property_id = req.params.property_id;
+  var lat = req.params.lat;
+  var lat = req.params.lon;
+
+  //RAPID API
+  var options = {
+    method: "GET",
+    url: `https://us-real-estate.p.rapidapi.com/property-detail`,
+    params: { property_id: property_id },
+    headers: {
+      "x-rapidapi-key": API_KEY,
+      "x-rapidapi-host": "us-real-estate.p.rapidapi.com",
+    },
+  };
+
+  //GOOGLE JS API
+
+  axios
+    .request(options)
+    .then(function (response) {
+      var status_code = response.data.status;
+      var single_data = response.data.data;
+      var address = single_data.location.address.line;
+      var city = single_data.location.address.city;
+      var state_code = single_data.location.address.state_code;
+      var postal_code = single_data.location.address.postal_code;
+      var price = single_data.list_price;
+      var status = single_data.status;
+      var photos = single_data.photos;
+      var type = single_data.description.type;
+      var footage = single_data.description.sqft;
+      var lot_footage = single_data.description.lot_sqft;
+      var description = single_data.description.text;
+      var beds = single_data.description.beds;
+      var full_baths = single_data.description.baths_full;
+      var agent_name = single_data.consumer_advertisers[0].name;
+      var agent_num = single_data.consumer_advertisers[1].phone;
+      var details = single_data.details[3].text;
+      // console.log(details[1]);
+      // console.log(agent_num);
+
+      res.render("town_house", {
+        status: status_code,
+        address: address,
+        city: city,
+        state_code: state_code,
+        postal_code: postal_code,
+        price: price,
+        status: status,
+        type: type,
+        photos: photos,
+        footage: footage,
+        lot_footage: lot_footage,
+        description: description,
+        beds: beds,
+        full_baths: full_baths,
+        agent_name: agent_name,
+        agent_num: agent_num,
+        property_id: property_id,
+        details: details,
+        GEO_API_KEY: GEO_API_KEY,
+      });
     })
     .catch(function (error) {
       console.error(error);
