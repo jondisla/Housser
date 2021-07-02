@@ -101,7 +101,7 @@ app.post("/main-results", async (req, res, next) => {
       var property_type = req.body.property_type;
       var city = req.body.city;
       var sort = "newest";
-      console.log(property_type);
+      // console.log(fetchedData);
 
       try {
         res.render("main-results", {
@@ -165,8 +165,7 @@ app.get("/single_family/:property_id/:lat/:lon", (req, res, next) => {
       var agent_name = single_data.consumer_advertisers[0].name;
       var agent_num = single_data.consumer_advertisers[1].phone;
       var details = single_data.details[3].text;
-      // console.log(details[1]);
-      // console.log(agent_num);
+      console.log(type);
 
       res.render("single_family", {
         status: status_code,
@@ -235,8 +234,7 @@ app.get("/land/:property_id/:lat/:lon", (req, res, next) => {
       var agent_name = single_data.consumer_advertisers[0].name;
       var agent_num = single_data.consumer_advertisers[1].phone;
       var details = single_data.details[3].text;
-      // console.log(details[1]);
-      // console.log(agent_num);
+      console.log(type);
 
       res.render("land", {
         status: status_code,
@@ -266,7 +264,7 @@ app.get("/land/:property_id/:lat/:lon", (req, res, next) => {
 });
 
 //Condo Listing
-app.get("/condo/:property_id/:lat/:lon", (req, res, next) => {
+app.get("/condo_townhome/:property_id/:lat/:lon", (req, res, next) => {
   var property_id = req.params.property_id;
   var lat = req.params.lat;
   var lat = req.params.lon;
@@ -299,16 +297,16 @@ app.get("/condo/:property_id/:lat/:lon", (req, res, next) => {
       var type = single_data.description.type;
       var footage = single_data.description.sqft;
       var lot_footage = single_data.description.lot_sqft;
-      var description = single_data.description.text;
+      // var description = single_data.description.text;
       var beds = single_data.description.beds;
       var full_baths = single_data.description.baths_full;
       var agent_name = single_data.consumer_advertisers[0].name;
-      var agent_num = single_data.consumer_advertisers[1].phone;
-      var details = single_data.details[3].text;
+      // var agent_num = single_data.consumer_advertisers[1].phone;
+      // var details = single_data.details.text;
       // console.log(details[1]);
-      // console.log(agent_num);
+      console.log(agent_num);
 
-      res.render("condo", {
+      res.render("condo_townhome", {
         status: status_code,
         address: address,
         city: city,
@@ -320,11 +318,11 @@ app.get("/condo/:property_id/:lat/:lon", (req, res, next) => {
         photos: photos,
         footage: footage,
         lot_footage: lot_footage,
-        description: description,
+        // description: description,
         beds: beds,
         full_baths: full_baths,
         agent_name: agent_name,
-        agent_num: agent_num,
+        // agent_num: agent_num,
         property_id: property_id,
         details: details,
         GEO_API_KEY: GEO_API_KEY,
@@ -476,7 +474,7 @@ app.get("/multi_family/:property_id/:lat/:lon", (req, res, next) => {
 });
 
 //Town House Listing
-app.get("/town_house/:property_id/:lat/:lon", (req, res, next) => {
+app.get("/townhomes/:property_id/:lat/:lon", (req, res, next) => {
   var property_id = req.params.property_id;
   var lat = req.params.lat;
   var lat = req.params.lon;
@@ -515,10 +513,9 @@ app.get("/town_house/:property_id/:lat/:lon", (req, res, next) => {
       var agent_name = single_data.consumer_advertisers[0].name;
       var agent_num = single_data.consumer_advertisers[1].phone;
       var details = single_data.details[3].text;
-      // console.log(details[1]);
-      // console.log(agent_num);
+      console.log(type);
 
-      res.render("town_house", {
+      res.render("townhomes", {
         status: status_code,
         address: address,
         city: city,
