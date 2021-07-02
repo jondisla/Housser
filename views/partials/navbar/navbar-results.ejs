@@ -31,8 +31,8 @@
         name="price_min"
         id=""
         placeholder="Min &#xf0d6;"
-        value=<%-price_min%>
-       min="50000"/>
+      />
+      min="50000"/>
       <input
         class="fas fa-money-bill-wave"
         type="number"
@@ -40,7 +40,7 @@
         id=""
         placeholder="Max &#xf0d6;"
         min="50000"
-        value=<%-price_max%>
+      />
       />
       <input
         class="fas fa-money-bill-wave"
@@ -48,41 +48,23 @@
         name="beds_min"
         id=""
         placeholder="Rooms &#xf236;"
-        value=<%-beds_min%>
-        min="1"
-        max="4"
       />
+      min="1" max="4" />
       <input
         class="fas fa-money-bill-wave"
         type="number"
         name="baths_min"
         id=""
         placeholder="Baths &#xf2cd;"
-        value=<%-baths_min%>
-        min="1"
-        max="3"
       />
-      <input
-        type="text"
-        name="city"
-        id=""
-        placeholder="City"
-        required
-        value=<%-city%>
-        pattern="[a-zA-Z]+"
-      />
-      <input
-        type="text"
-        name="state_code"
-        id=""
-        placeholder="State"
-        required
-        value=<%-state_code%>
-        pattern="[a-zA-Z]+"
-      />
+      min="1" max="3" />
+      <input type="text" name="city" id="" placeholder="City" required />
+      pattern="[a-zA-Z]+" />
+      <input type="text" name="state_code" id="" placeholder="State" required />
+      pattern="[a-zA-Z]+" />
 
-      <select name="property_type" required >
-        <option value=<%-property_type%> disabled selected><%-property_type.replace(/-/g, ' ')%></option>
+      <select name="property_type" required>
+        <option value="" disabled selected>Property Type</option>
         <option value="single_family">Single Family</option>
         <option value="multi_family">Multi Family</option>
         <option value="town_house">Town House</option>
@@ -136,8 +118,8 @@
           name="price_min"
           id=""
           placeholder="Min &#xf0d6;"
-          value=<%-price_min%>
-         min="50000"/>
+          min="50000"
+        />
         <input
           class="fas fa-money-bill-wave"
           type="number"
@@ -145,7 +127,6 @@
           id=""
           placeholder="Max &#xf0d6;"
           min="50000"
-          value=<%-price_max%>
         />
         <input
           class="fas fa-money-bill-wave"
@@ -153,7 +134,6 @@
           name="beds_min"
           id=""
           placeholder="Rooms &#xf236;"
-          value=<%-beds_min%>
           min="1"
           max="4"
         />
@@ -163,7 +143,6 @@
           name="baths_min"
           id=""
           placeholder="Baths &#xf2cd;"
-          value=<%-baths_min%>
           min="1"
           max="3"
         />
@@ -173,7 +152,6 @@
           id=""
           placeholder="City"
           required
-          value=<%-city%>
           pattern="[a-zA-Z]+"
         />
         <input
@@ -182,12 +160,11 @@
           id=""
           placeholder="State"
           required
-          value=<%-state_code%>
           pattern="[a-zA-Z]+"
         />
 
-        <select name="property_type" required >
-          <option value=<%-property_type%> disabled selected><%-property_type%></option>
+        <select name="property_type" required>
+          <option value="" disabled selected>Property Type</option>
           <option value="single_family">Single Family</option>
           <option value="multi_family">Multi Family</option>
           <option value="town_house">Town House</option>
