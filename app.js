@@ -23,6 +23,8 @@ app.use(express.static("assets"));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
 app.use("/assets", express.static("assets"));
+app.use("/favicon.ico", express.static("assets/img/favicon.ico"));
+
 //moments
 app.use((req, res, next) => {
   res.locals.moment = moment;
