@@ -1,20 +1,27 @@
 /** @format */
 
 var express = require("express");
+var bodyParser = require("body-parser");
 var http = require("http");
 var path = require("path");
 var ejs = require("ejs");
+var mongoose = require("mongoose");
 require("dotenv").config();
 var axios = require("axios").default;
 var morgan = require("morgan");
 const { type } = require("os");
 const PORT = process.env.PORT;
+const MONGODB_URI = process.env.MONGODB_URI;
 const moment = require("moment");
 
 require("dotenv").config();
 const GEO_API_KEY = process.env.GEOCODING_KEY;
 const API_KEY = process.env.API_KEY;
 const GEOCODING_KEY = process.env.GEOCODING_KEY;
+
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require("twilio")(accountSid, authToken);
 
 var app = express();
 
@@ -24,6 +31,26 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
 app.use("/assets", express.static("assets"));
 app.use("/favicon.ico", express.static("assets/img/favicon.ico"));
+app.use(bodyParser.urlencoded({ extended: false }));
+
+//MONGOOSE CONNECTION
+let MessageSchema = new mongoose.Schema({
+  phoneNumber: String,
+});
+
+let Message = mongoose.model("Message", MessageSchema);
+
+mongoose.Promise = require("bluebird");
+
+mongoose
+  .connect(MONGODB_URI, {
+    promiseLibrary: require("bluebird"),
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("connection successful"))
+  .catch((err) => console.error(err));
+
+//END MONGOOSE CONN
 
 //moments
 app.use((req, res, next) => {
@@ -65,6 +92,28 @@ app.get("/", (req, res, next) => {
     }
   }, 1000);
 });
+
+//START TWILIO
+// Download the helper library from https://www.twilio.com/docs/node/install
+// Find your Account SID and Auth Token at twilio.com/console
+// and set the environment variables. See http://twil.io/secure
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const client = require("twilio")(accountSid, authToken);
+
+// app.post("/chat", (req, res) => {
+//   let contactNumber = req.body.contactNumber;
+//   console.log(contactNumber);
+//   client.messages
+//     .create({
+//       body: "You have entered your number to receive notifications!",
+//       from: "+13523064876",
+//       to: contactNumber,
+//     })
+//     //or can log message.id
+//     .then(message => console.log(message));
+// });
+//////////////////////END TWILIO
 
 //Search form
 app.post("/main-results", async (req, res, next) => {

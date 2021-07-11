@@ -58,7 +58,7 @@
           id=""
           placeholder="City"
           required
-          pattern="[a-zA-Z]+"
+          pattern="[a-zA-Z, ]+"
         />
         <input
           type="text"
@@ -99,6 +99,10 @@
     </div>
     <div id="homeImg"></div>
   </div>
+  <!-- <form action="/chat" method="POST">
+    <input type="number" name="contactNumber" maxlength="11" value="1" /><br />
+    <button type="submit">Submit</button>
+  </form> -->
   <script>
     let animation = anime({
       targets: "#welcome-text",
@@ -111,5 +115,7 @@
     $(".welcome-sec")
       .css({ opacity: 0, visibility: "visible" })
       .animate({ opacity: 1.0 }, 200);
+
+    //
   </script>
 </div>
