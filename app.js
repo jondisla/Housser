@@ -19,9 +19,9 @@ const GEO_API_KEY = process.env.GEOCODING_KEY;
 const API_KEY = process.env.API_KEY;
 const GEOCODING_KEY = process.env.GEOCODING_KEY;
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require("twilio")(accountSid, authToken);
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const client = require("twilio")(accountSid, authToken);
 
 var app = express();
 
@@ -136,7 +136,6 @@ app.post("/main-results", async (req, res, next) => {
       var city = req.body.city;
       var sort = "newest";
       // console.log(fetchedData);
-      
 
       try {
         res.render("main-results", {

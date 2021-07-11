@@ -32,12 +32,11 @@
         id=""
         placeholder="Min &#xf0d6;"
         min="50000"
-        <% if(price_min != null){%>
-          value=<%-price_min%>
-        <%}else{%>
-          value=""
-          <%}%>
+        <%
+        if(price_min
+        !="null){%"
       />
+      value=<%-price_min%> <%}else{%> value="" <%}%> />
       <input
         class="fas fa-money-bill-wave"
         type="number"
@@ -45,12 +44,11 @@
         id=""
         placeholder="Max &#xf0d6;"
         min="50000"
-        <% if(price_max != null){%>
-          value=<%-price_max%>
-        <%}else{%>
-          value=""
-          <%}%>
+        <%
+        if(price_max
+        !="null){%"
       />
+      value=<%-price_max%> <%}else{%> value="" <%}%> />
       <input
         class="fas fa-money-bill-wave"
         type="number"
@@ -59,24 +57,22 @@
         placeholder="Rooms &#xf236;"
         min="1"
         max="4"
-        <% if(beds_min != null){%>
-          value=<%-beds_min%>
-        <%}else{%>
-          value=""
-          <%}%>
+        <%
+        if(beds_min
+        !="null){%"
       />
+      value=<%-beds_min%> <%}else{%> value="" <%}%> />
       <input
         class="fas fa-money-bill-wave"
         type="number"
         name="baths_min"
         id=""
         placeholder="Baths &#xf2cd;"
-        <% if(baths_min != null){%>
-          value=<%-baths_min%>
-        <%}else{%>
-          value=""
-          <%}%>
+        <%
+        if(baths_min
+        !="null){%"
       />
+      value=<%-baths_min%> <%}else{%> value="" <%}%> />
       <input
         type="text"
         name="city"
@@ -84,12 +80,11 @@
         placeholder="City"
         required
         pattern="[a-zA-Z, ]+"
-        <% if(city != null){%>
-          value=<%-city%>
-        <%}else{%>
-          value=""
-          <%}%>
+        <%
+        if(city
+        !="null){%"
       />
+      value="<%-city%>" <%}else{%> value="" <%}%> />
       <input
         type="text"
         name="state_code"
@@ -97,12 +92,11 @@
         placeholder="State"
         required
         pattern="[a-zA-Z]+"
-        <% if(state_code != null){%>
-          value=<%-state_code%>
-        <%}else{%>
-          value=""
-          <%}%>
+        <%
+        if(state_code
+        !="null){%"
       />
+      value=<%-state_code%> <%}else{%> value="" <%}%> />
 
       <select name="property_type" required>
         <option value="" disabled selected>Property Type</option>
@@ -154,83 +148,77 @@
           disabled
         />
         <input
-        class="fas fa-money-bill-wave"
-        type="number"
-        name="price_min"
-        id=""
-        placeholder="Min &#xf0d6;"
-        min="50000"
-        <% if(price_min != null){%>
-          value=<%-price_min%>
-        <%}else{%>
-          value=""
-          <%}%>
-      />
-      <input
-        class="fas fa-money-bill-wave"
-        type="number"
-        name="price_max"
-        id=""
-        placeholder="Max &#xf0d6;"
-        min="50000"
-        <% if(price_max != null){%>
-          value=<%-price_max%>
-        <%}else{%>
-          value=""
-          <%}%>
-      />
-      <input
-        class="fas fa-money-bill-wave"
-        type="number"
-        name="beds_min"
-        id=""
-        placeholder="Rooms &#xf236;"
-        min="1"
-        max="4"
-        <% if(beds_min != null){%>
-          value=<%-beds_min%>
-        <%}else{%>
-          value=""
-          <%}%>
-      />
-      <input
-        class="fas fa-money-bill-wave"
-        type="number"
-        name="baths_min"
-        id=""
-        placeholder="Baths &#xf2cd;"
-        <% if(baths_min != null){%>
-          value=<%-baths_min%>
-        <%}else{%>
-          value=""
-          <%}%>
-      />
-      <input
-        type="text"
-        name="city"
-        id=""
-        placeholder="City"
-        required
-        pattern="[a-zA-Z, ]+"
-        <% if(city != null){%>
-          value=<%-city%>
-        <%}else{%>
-          value=""
-          <%}%>
-      />
-      <input
-        type="text"
-        name="state_code"
-        id=""
-        placeholder="State"
-        required
-        pattern="[a-zA-Z]+"
-        <% if(state_code != null){%>
-          value=<%-state_code%>
-        <%}else{%>
-          value=""
-          <%}%>
-      />
+          class="fas fa-money-bill-wave"
+          type="number"
+          name="price_min"
+          id=""
+          placeholder="Min &#xf0d6;"
+          min="50000"
+          <%
+          if(price_min
+          !="null){%"
+        />
+        value=<%-price_min%> <%}else{%> value="" <%}%> />
+        <input
+          class="fas fa-money-bill-wave"
+          type="number"
+          name="price_max"
+          id=""
+          placeholder="Max &#xf0d6;"
+          min="50000"
+          <%
+          if(price_max
+          !="null){%"
+        />
+        value=<%-price_max%> <%}else{%> value="" <%}%> />
+        <input
+          class="fas fa-money-bill-wave"
+          type="number"
+          name="beds_min"
+          id=""
+          placeholder="Rooms &#xf236;"
+          min="1"
+          max="4"
+          <%
+          if(beds_min
+          !="null){%"
+        />
+        value=<%-beds_min%> <%}else{%> value="" <%}%> />
+        <input
+          class="fas fa-money-bill-wave"
+          type="number"
+          name="baths_min"
+          id=""
+          placeholder="Baths &#xf2cd;"
+          <%
+          if(baths_min
+          !="null){%"
+        />
+        value=<%-baths_min%> <%}else{%> value="" <%}%> />
+        <input
+          type="text"
+          name="city"
+          id=""
+          placeholder="City"
+          required
+          pattern="[a-zA-Z, ]+"
+          <%
+          if(city
+          !="null){%"
+        />
+        value="<%-city%>" <%}else{%> value="" <%}%> />
+        <input
+          type="text"
+          name="state_code"
+          id=""
+          placeholder="State"
+          required
+          pattern="[a-zA-Z]+"
+          <%
+          if(state_code
+          !="null){%"
+        />
+        value=<%-state_code%> <%}else{%> value="" <%}%> />
 
         <select name="property_type" required>
           <option value="" disabled selected>Property Type</option>
