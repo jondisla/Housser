@@ -5,13 +5,13 @@ var bodyParser = require("body-parser");
 var http = require("http");
 var path = require("path");
 var ejs = require("ejs");
-var mongoose = require("mongoose");
+// var mongoose = require("mongoose");
 require("dotenv").config();
 var axios = require("axios").default;
 var morgan = require("morgan");
 const { type } = require("os");
 const PORT = process.env.PORT;
-const MONGODB_URI = process.env.MONGODB_URI;
+// const MONGODB_URI = process.env.MONGODB_URI;
 const moment = require("moment");
 
 require("dotenv").config();
@@ -34,21 +34,21 @@ app.use("/favicon.ico", express.static("assets/img/favicon.ico"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //MONGOOSE CONNECTION
-let MessageSchema = new mongoose.Schema({
-  phoneNumber: String,
-});
+// let MessageSchema = new mongoose.Schema({
+//   phoneNumber: String,
+// });
 
-let Message = mongoose.model("Message", MessageSchema);
+// let Message = mongoose.model("Message", MessageSchema);
 
-mongoose.Promise = require("bluebird");
+// mongoose.Promise = require("bluebird");
 
-mongoose
-  .connect(MONGODB_URI, {
-    promiseLibrary: require("bluebird"),
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("connection successful"))
-  .catch((err) => console.error(err));
+// mongoose
+//   .connect(MONGODB_URI, {
+//     promiseLibrary: require("bluebird"),
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => console.log("connection successful"))
+//   .catch((err) => console.error(err));
 
 //END MONGOOSE CONN
 
@@ -57,23 +57,6 @@ app.use((req, res, next) => {
   res.locals.moment = moment;
   next();
 });
-//errors
-// app.use((req, res, next) => {
-//   const err = new Error("Not Found");
-//   err.status = 404;
-//   next(err);
-// });
-
-// //error handler
-// app.use((err, req, res, next) => {
-//   res.status(err.status || 500);
-//   res.send({
-//     error: {
-//       status: err.status || 500,
-//       message: err.message,
-//     },
-//   });
-// });
 
 app.set("views", path.resolve(__dirname, "views"));
 
@@ -153,6 +136,7 @@ app.post("/main-results", async (req, res, next) => {
       var city = req.body.city;
       var sort = "newest";
       // console.log(fetchedData);
+      
 
       try {
         res.render("main-results", {
