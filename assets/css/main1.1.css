@@ -857,4 +857,78 @@ body {
           filter: brightness(80%);
   background-color: grey;
 }
+
+.getInfoBox {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 0;
+  background-color: #100d42;
+  height: 380px;
+  width: 330px;
+  color: white;
+  text-align: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 20px;
+}
+
+.getInfoBox .infoCloseBtn {
+  font-size: 25px;
+  padding-bottom: 40px;
+  text-align: right;
+}
+
+.getInfoBox .infoCloseBtn i:hover {
+  color: #1361c3;
+  cursor: pointer;
+}
+
+.getInfoBox .infoOpenBtn {
+  display: none;
+  font-size: 25px;
+  padding-bottom: 40px;
+  text-align: right;
+}
+
+.getInfoBox .infoOpenBtn i:hover {
+  color: #1361c3;
+  cursor: pointer;
+}
+
+.getInfoBox input {
+  border-radius: 5px;
+  border: hidden;
+  width: 200px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.getInfoBox .submitInfo {
+  width: 100px;
+  height: 43px;
+  background: #1361c3;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+}
+
+.getInfoBox .redoInfo {
+  display: none;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.getInfoBox .redoInfo i:hover {
+  color: #1361c3;
+  cursor: pointer;
+}
+
+.getInfoBox .formSubmittedText {
+  display: none;
+  background-color: #497149;
+  color: white;
+  border-radius: 5px;
+  padding: 20px;
+}
 /*# sourceMappingURL=main1.1.css.map */

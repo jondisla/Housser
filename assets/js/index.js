@@ -19,7 +19,51 @@ function initMap() {
     title: "Hello World!",
   });
 }
-console.log("from GMAPS");
+
+// let autocomplete;
+
+function initAutocomplete() {
+  autocomplete = new google.maps.places.Autocomplete(
+    document.getElementById("autocomplete"),
+    {
+      types: ["(cities)"],
+      componentRestrictions: { country: ["US"] },
+      fields: ["name"],
+    }
+  );
+  autocomplete1 = new google.maps.places.Autocomplete(
+    document.getElementById("autocomplete1"),
+    {
+      types: ["(cities)"],
+      componentRestrictions: { country: ["US"] },
+      fields: ["name"],
+    }
+  );
+  autocomplete2 = new google.maps.places.Autocomplete(
+    document.getElementById("autocomplete2"),
+    {
+      types: ["(cities)"],
+      componentRestrictions: { country: ["US"] },
+      fields: ["name"],
+    }
+  );
+  autocomplete3 = new google.maps.places.Autocomplete(
+    document.getElementById("autocomplete3"),
+    {
+      types: ["(cities)"],
+      componentRestrictions: { country: ["US"] },
+      fields: ["name"],
+    }
+  );
+  autocomplete4 = new google.maps.places.Autocomplete(
+    document.getElementById("autocomplete4"),
+    {
+      types: ["(cities)"],
+      componentRestrictions: { country: ["US"] },
+      fields: ["name"],
+    }
+  );
+}
 
 ///////END GOOGLE MAPS
 
@@ -27,20 +71,38 @@ console.log("from GMAPS");
 $(document).ready(function () {
   console.log("ready");
 
+  //show info box after 2 secs of page load
+  $('.getInfoBox').delay(2300).fadeIn(500);
+  //Close info notification
+  $(".infoCloseBtn").click(() => {
+    $(".getInfoBox").animate({ height: "60" });
+    $(".infoOpenBtn").show();
+    $(".infoCloseBtn").hide();
+  });
+  $(".infoOpenBtn").click(() => {
+    $(".getInfoBox").animate({ height: "380" });
+    $(".infoCloseBtn").show();
+    $(".infoOpenBtn").hide();
+  });
+
+  $(".submitInfo").click((e) => {
+    e.preventDefault();
+    $(".getInfoWrapper").fadeOut();
+    $(".formSubmittedText, .redoInfo").delay(1000).fadeIn();
+  });
+
+  $(".redoInfo").click(() => {
+    $(".getInfoWrapper").delay(1000).fadeIn();
+    $(".formSubmittedText, .redoInfo").fadeOut();
+  });
+
   //LOADING
   $(".search-it").submit(() => {
     $(".loader, .loading-text").show();
     $(".search-form").hide();
     $("#welcome-text, .results").hide();
   });
-  // $(".main-result-card").click(() => {
-  //   $(".loader").show();
-  //   $(".results").hide();
-  //   console.log("cle");
-  // });
 
-  //mobile-menu
-  //open/close button
   $("#open-nav-btn").click(() => {
     $("#close-nav-btn").show();
     $("#open-nav-btn").hide();

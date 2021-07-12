@@ -12,26 +12,11 @@
         <div class="underline"></div>
       </div>
       <form class="search-it" action="/main-results" method="POST">
-        <input
-          type="hidden"
-          name="offset"
-          id=""
-          placeholder=""
-          value="0"
-          disabled
-        />
-        <input
-          type="hidden"
-          name="limit"
-          id=""
-          placeholder=""
-          value="40"
-          disabled
-        />
+        <input type="hidden" name="offset" placeholder="" value="0" disabled />
+        <input type="hidden" name="limit" placeholder="" value="40" disabled />
         <input
           type="number"
           name="price_max"
-          id=""
           placeholder="Max Price"
           min="50000"
           max="700000"
@@ -39,7 +24,6 @@
         <input
           type="number"
           name="beds_max"
-          id=""
           placeholder="Max Rooms"
           min="1"
           max="5"
@@ -47,7 +31,6 @@
         <input
           type="number"
           name="baths_max"
-          id=""
           placeholder="Max Baths"
           min="1"
           max="4"
@@ -55,15 +38,14 @@
         <input
           type="text"
           name="city"
-          id=""
           placeholder="City"
+          id="autocomplete4"
           required
           pattern="[a-zA-Z, ]+"
         />
         <input
           type="text"
           name="state_code"
-          id=""
           placeholder="State"
           required
           pattern="[a-zA-Z]+"
@@ -99,10 +81,7 @@
     </div>
     <div id="homeImg"></div>
   </div>
-  <!-- <form action="/chat" method="POST">
-    <input type="number" name="contactNumber" maxlength="11" value="1" /><br />
-    <button type="submit">Submit</button>
-  </form> -->
+  <!-- <input type="text" name="" id="autocomplete" /> -->
   <script>
     let animation = anime({
       targets: "#welcome-text",
@@ -116,4 +95,31 @@
       .css({ opacity: 0, visibility: "visible" })
       .animate({ opacity: 1.0 }, 200);
   </script>
+</div>
+
+<div class="getInfoBox">
+  <div class="infoCloseBtn">
+    <i class="fas fa-times"></i>
+  </div>
+  <div class="infoOpenBtn">
+    <i class="fas fa-plus    "></i>
+  </div>
+  <div class="getInfoWrapper">
+    <h3>Get notified of newest properties</h3>
+    <p>Just provide us with a little info!</p>
+    <form action="signUp" method="post">
+      <input type="tel" name="tn" id="" placeholder="Tel" limit="10" />
+      <input type="email" name="email" id="" placeholder="email" />
+      <br />
+      <button class="submitInfo" type="submit">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </form>
+  <div class="formSubmittedText">
+    Thanks, new properties coming to you shortly!
+  </div>
+  <div class="redoInfo">
+    <i class="fas fa-redo-alt"></i>
+  </div>
 </div>

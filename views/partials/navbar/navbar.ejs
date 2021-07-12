@@ -13,27 +13,12 @@
       <a href="/"><img src="/img/logo.png" alt="logo-house" /></a>
     </div> -->
     <form action="/main-results" method="POST">
-      <input
-        type="hidden"
-        name="offset"
-        id=""
-        placeholder=""
-        value="0"
-        disabled
-      />
-      <input
-        type="hidden"
-        name="limit"
-        id=""
-        placeholder=""
-        value="50"
-        disabled
-      />
+      <input type="hidden" name="offset" placeholder="" value="0" disabled />
+      <input type="hidden" name="limit" placeholder="" value="50" disabled />
       <input
         class="fas fa-money-bill-wave"
         type="number"
         name="price_min"
-        id=""
         placeholder="Min &#xf0d6;"
         min="50000"
       />
@@ -41,7 +26,6 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="price_max"
-        id=""
         placeholder="Max &#xf0d6;"
         min="50000"
       />
@@ -49,7 +33,6 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="beds_min"
-        id=""
         placeholder="Rooms &#xf236;"
         min="1"
         max="4"
@@ -58,21 +41,19 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="baths_min"
-        id=""
         placeholder="Baths &#xf2cd;"
       />
       <input
         type="text"
         name="city"
-        id=""
         placeholder="City"
+        id="autocomplete"
         required
         pattern="[a-zA-Z, ]+"
       />
       <input
         type="text"
         name="state_code"
-        id=""
         placeholder="State"
         required
         pattern="[a-zA-Z]+"
@@ -108,27 +89,12 @@
   <div class="loading-text">Getting Listings...</div>
   <div class="search-form">
     <form class="search-it" action="/main-results" method="POST">
-      <input
-        type="hidden"
-        name="offset"
-        id=""
-        placeholder=""
-        value="0"
-        disabled
-      />
-      <input
-        type="hidden"
-        name="limit"
-        id=""
-        placeholder=""
-        value="50"
-        disabled
-      />
+      <input type="hidden" name="offset" placeholder="" value="0" disabled />
+      <input type="hidden" name="limit" placeholder="" value="50" disabled />
       <input
         class="fas fa-money-bill-wave"
         type="number"
         name="price_min"
-        id=""
         placeholder="Min &#xf0d6;"
         min="50000"
       />
@@ -136,7 +102,6 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="price_max"
-        id=""
         placeholder="Max &#xf0d6;"
         min="50000"
       />
@@ -144,7 +109,6 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="beds_min"
-        id=""
         placeholder="Rooms &#xf236;"
         min="1"
         max="4"
@@ -153,21 +117,19 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="baths_min"
-        id=""
         placeholder="Baths &#xf2cd;"
       />
       <input
         type="text"
         name="city"
-        id=""
         placeholder="City"
+        id="autocomplete1"
         required
         pattern="[a-zA-Z, ]+"
       />
       <input
         type="text"
         name="state_code"
-        id=""
         placeholder="State"
         required
         pattern="[a-zA-Z]+"

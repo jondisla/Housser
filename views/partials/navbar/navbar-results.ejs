@@ -12,7 +12,6 @@
       <input
         type="hidden"
         name="offset"
-        id=""
         placeholder=""
         value="0"
         disabled
@@ -20,7 +19,6 @@
       <input
         type="hidden"
         name="limit"
-        id=""
         placeholder=""
         value="50"
         disabled
@@ -29,7 +27,6 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="price_min"
-        id=""
         placeholder="Min &#xf0d6;"
         min="50000"
         <%if(price_min != null){%>
@@ -40,7 +37,6 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="price_max"
-        id=""
         placeholder="Max &#xf0d6;"
         min="50000"
         <%if(price_max!=null){%>
@@ -51,7 +47,6 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="beds_min"
-        id=""
         placeholder="Rooms &#xf236;"
         min="1"
         max="4"
@@ -63,7 +58,6 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="baths_min"
-        id=""
         placeholder="Baths &#xf2cd;"
         <%if(baths_min!=null){%>
         value=<%-baths_min%>
@@ -72,8 +66,8 @@
       <input
         type="text"
         name="city"
-        id=""
         placeholder="City"
+        id="autocomplete2"
         required
         pattern="[a-zA-Z, ]+"
         <%if(city!=null){%>
@@ -82,7 +76,6 @@
       <input
         type="text"
         name="state_code"
-        id=""
         placeholder="State"
         required
         pattern="[a-zA-Z]+"
@@ -127,7 +120,6 @@
         <input
           type="hidden"
           name="offset"
-          id=""
           placeholder=""
           value="0"
           disabled
@@ -135,7 +127,6 @@
         <input
           type="hidden"
           name="limit"
-          id=""
           placeholder=""
           value="50"
           disabled
@@ -144,7 +135,6 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="price_min"
-        id=""
         placeholder="Min &#xf0d6;"
         min="50000"
         <%if(price_min != null){%>
@@ -155,7 +145,6 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="price_max"
-        id=""
         placeholder="Max &#xf0d6;"
         min="50000"
         <%if(price_max!=null){%>
@@ -166,7 +155,6 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="beds_min"
-        id=""
         placeholder="Rooms &#xf236;"
         min="1"
         max="4"
@@ -178,7 +166,6 @@
         class="fas fa-money-bill-wave"
         type="number"
         name="baths_min"
-        id=""
         placeholder="Baths &#xf2cd;"
         <%if(baths_min!=null){%>
         value=<%-baths_min%>
@@ -187,8 +174,8 @@
       <input
         type="text"
         name="city"
-        id=""
         placeholder="City"
+        id="autocomplete3"
         required
         pattern="[a-zA-Z, ]+"
         <%if(city!=null){%>
@@ -197,7 +184,6 @@
       <input
         type="text"
         name="state_code"
-        id=""
         placeholder="State"
         required
         pattern="[a-zA-Z]+"

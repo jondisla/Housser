@@ -5,12 +5,12 @@ var bodyParser = require("body-parser");
 var http = require("http");
 var path = require("path");
 var ejs = require("ejs");
-// var mongoose = require("mongoose");
 require("dotenv").config();
 var axios = require("axios").default;
 var morgan = require("morgan");
 const { type } = require("os");
 const PORT = process.env.PORT;
+// var mongoose = require("mongoose");
 // const MONGODB_URI = process.env.MONGODB_URI;
 const moment = require("moment");
 
@@ -64,10 +64,13 @@ app.set("view engine", "ejs");
 
 //Home
 app.get("/", (req, res, next) => {
+  
   setTimeout(() => {
     try {
       console.log("Success.");
-      res.render("home");
+      res.render("home",{
+        GEO_API_KEY:GEO_API_KEY
+      });
       // throw new Error("Hello Error!")
     } catch (error) {
       // manually catching
@@ -107,7 +110,7 @@ app.post("/main-results", async (req, res, next) => {
   var beds_min = req.body.beds_min;
   var baths_min = req.body.baths_min;
   var state_code = req.body.state_code;
-  var city = req.body.city;
+  var city = req.body.city.slice(0, - 9);
   var property_type = req.body.property_type;
   var sort = "newest";
 
@@ -149,6 +152,7 @@ app.post("/main-results", async (req, res, next) => {
           city: city,
           property_type: property_type,
           sort: sort,
+          GEO_API_KEY:GEO_API_KEY
         });
       } catch (e) {
         next(e);
