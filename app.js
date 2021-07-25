@@ -27,9 +27,9 @@ var app = express();
 
 //MIDDLEWARES
 app.use(express.static("assets"));
+app.use("/assets", express.static("assets"));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
-app.use("/assets", express.static("assets"));
 app.use("/favicon.ico", express.static("assets/img/favicon.ico"));
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -64,12 +64,11 @@ app.set("view engine", "ejs");
 
 //Home
 app.get("/", (req, res, next) => {
-  
   setTimeout(() => {
     try {
       console.log("Success.");
-      res.render("home",{
-        GEO_API_KEY:GEO_API_KEY
+      res.render("home", {
+        GEO_API_KEY: GEO_API_KEY,
       });
       // throw new Error("Hello Error!")
     } catch (error) {
@@ -78,28 +77,6 @@ app.get("/", (req, res, next) => {
     }
   }, 1000);
 });
-
-//START TWILIO
-// Download the helper library from https://www.twilio.com/docs/node/install
-// Find your Account SID and Auth Token at twilio.com/console
-// and set the environment variables. See http://twil.io/secure
-// const accountSid = process.env.TWILIO_ACCOUNT_SID;
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-// const client = require("twilio")(accountSid, authToken);
-
-// app.post("/chat", (req, res) => {
-//   let contactNumber = req.body.contactNumber;
-//   console.log(contactNumber);
-//   client.messages
-//     .create({
-//       body: "You have entered your number to receive notifications!",
-//       from: "+13523064876",
-//       to: contactNumber,
-//     })
-//     //or can log message.id
-//     .then(message => console.log(message));
-// });
-//////////////////////END TWILIO
 
 //Search form
 app.post("/main-results", async (req, res, next) => {
@@ -110,7 +87,7 @@ app.post("/main-results", async (req, res, next) => {
   var beds_min = req.body.beds_min;
   var baths_min = req.body.baths_min;
   var state_code = req.body.state_code;
-  var city = req.body.city.slice(0, - 9);
+  var city = req.body.city.slice(0, -9);
   var property_type = req.body.property_type;
   var sort = "newest";
 
@@ -152,7 +129,7 @@ app.post("/main-results", async (req, res, next) => {
           city: city,
           property_type: property_type,
           sort: sort,
-          GEO_API_KEY:GEO_API_KEY
+          GEO_API_KEY: GEO_API_KEY,
         });
       } catch (e) {
         next(e);
@@ -582,7 +559,9 @@ app.get("/townhomes/:property_id/:lat/:lon", (req, res, next) => {
 
 //ERROR HANDLING
 app.use((err, req, res, next) => {
-  res.render("error");
+  res.render("error", {
+    GEO_API_KEY: GEO_API_KEY,
+  });
   console.log(err);
 });
 
