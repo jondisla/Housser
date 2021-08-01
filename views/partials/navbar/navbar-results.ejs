@@ -23,26 +23,43 @@
         value="50"
         disabled
       />
-      <input
-        class="fas fa-money-bill-wave"
-        type="number"
-        name="price_min"
-        placeholder="Min &#xf0d6;"
-        min="50000"
+      
+      <select name="price_min">
         <%if(price_min != null){%>
-        value=<%-price_min%> 
-        <%}else{%> 
-        value="" <%}%> />
-      <input
-        class="fas fa-money-bill-wave"
-        type="number"
-        name="price_max"
-        placeholder="Max &#xf0d6;"
-        min="50000"
-        <%if(price_max!=null){%>
-        value=<%-price_max%> 
-        <%}else{%>
-        value="" <%}%> />
+          <option value=<%-price_min%> default selected><%-price_min%></option>
+          <%}else{%> 
+          <option value="" default selected>Min Price
+          <%}%> </option>
+          <option value="0">$0</option>
+          <option value="100000">$100,000</option>
+          <option value="200000">$200,000</option>
+          <option value="300000">$300,000</option>
+          <option value="400000">$400,000</option>
+          <option value="500000">$500,000</option>
+          <option value="600000">$600,000</option>
+          <option value="700000">$700,000</option>
+          <option value="800000">$800,000</option>
+          <option value="900000">$900,000</option>
+      </select>
+
+      <select name="price_max">
+        <%if(price_max != null){%>
+          <option value=<%-price_max%> default selected><%-price_max%></option>
+          <%}else{%> 
+          <option value="" default selected>Max Price
+          <%}%> </option>
+          <option value="100000">$100,000</option>
+          <option value="200000">$200,000</option>
+          <option value="300000">$300,000</option>
+          <option value="400000">$400,000</option>
+          <option value="500000">$500,000</option>
+          <option value="600000">$600,000</option>
+          <option value="700000">$700,000</option>
+          <option value="800000">$800,000</option>
+          <option value="900000">$900,000</option>
+          <option value="1000000">$1M</option>
+      </select>
+
       <input
         class="fas fa-money-bill-wave"
         type="number"
@@ -131,26 +148,43 @@
           value="50"
           disabled
         />
-        <input
-        class="fas fa-money-bill-wave"
-        type="number"
-        name="price_min"
-        placeholder="Min &#xf0d6;"
-        min="50000"
-        <%if(price_min != null){%>
-        value=<%-price_min%> 
-        <%}else{%> 
-        value="" <%}%> />
-      <input
-        class="fas fa-money-bill-wave"
-        type="number"
-        name="price_max"
-        placeholder="Max &#xf0d6;"
-        min="50000"
-        <%if(price_max!=null){%>
-        value=<%-price_max%> 
-        <%}else{%>
-        value="" <%}%> />
+
+        <select name="price_min">
+          <%if(price_min != null){%>
+            <option value=<%-price_min%> default selected><%-price_min%></option>
+            <%}else{%> 
+            <option value="" default selected>Min Price
+            <%}%> </option>
+            <option value="0">$0</option>
+            <option value="100000">$100,000</option>
+            <option value="200000">$200,000</option>
+            <option value="300000">$300,000</option>
+            <option value="400000">$400,000</option>
+            <option value="500000">$500,000</option>
+            <option value="600000">$600,000</option>
+            <option value="700000">$700,000</option>
+            <option value="800000">$800,000</option>
+            <option value="900000">$900,000</option>
+        </select>
+
+        <select name="price_max">
+          <%if(price_max != null){%>
+            <option value=<%-price_max%> default selected><%-price_max%></option>
+            <%}else{%> 
+            <option value="" default selected>Max Price
+            <%}%> </option>
+            <option value="100000">$100,000</option>
+            <option value="200000">$200,000</option>
+            <option value="300000">$300,000</option>
+            <option value="400000">$400,000</option>
+            <option value="500000">$500,000</option>
+            <option value="600000">$600,000</option>
+            <option value="700000">$700,000</option>
+            <option value="800000">$800,000</option>
+            <option value="900000">$900,000</option>
+            <option value="1000000">$1M</option>
+        </select>
+
       <input
         class="fas fa-money-bill-wave"
         type="number"

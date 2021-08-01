@@ -339,7 +339,6 @@
 .navbar .search-form input,
 .navbar .search-form select {
   height: 30px;
-  width: 180px;
   border-radius: 5px;
   border: 1px solid #c2c2c2;
 }
@@ -632,7 +631,6 @@ body {
 .home .search-form input,
 .home .search-form select {
   height: 30px;
-  width: 180px;
   border-radius: 5px;
   border: 1px solid #c2c2c2;
 }

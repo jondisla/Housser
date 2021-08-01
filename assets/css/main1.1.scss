@@ -96,7 +96,7 @@ body {
     input,
     select {
       height: 30px;
-      width: 180px;
+      // width: 180px;
       border-radius: 5px;
       border: 1px solid rgb(194, 194, 194);
     }
@@ -309,7 +309,7 @@ body {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: 20px;
-  .infoCloseBtn{
+  .infoCloseBtn {
     font-size: 25px;
     padding-bottom: 40px;
     text-align: right;
@@ -320,7 +320,7 @@ body {
       }
     }
   }
-  .infoOpenBtn{
+  .infoOpenBtn {
     display: none;
     font-size: 25px;
     padding-bottom: 40px;
@@ -339,7 +339,7 @@ body {
     height: 40px;
     margin-bottom: 10px;
   }
-  .submitInfo{
+  .submitInfo {
     width: 100px;
     height: 43px;
     background: $mainColor;
@@ -347,18 +347,18 @@ body {
     border: 0;
     border-radius: 5px;
   }
-  .redoInfo{
+  .redoInfo {
     display: none;
     text-align: center;
     padding-top: 20px;
-    i{
-    &:hover{
-      color: $mainColor;
-      cursor: pointer;
+    i {
+      &:hover {
+        color: $mainColor;
+        cursor: pointer;
+      }
     }
   }
-  }
-  .formSubmittedText{
+  .formSubmittedText {
     display: none;
     background-color: rgb(73, 113, 73);
     color: white;
